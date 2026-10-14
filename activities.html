@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Work - Portfolio of Louise Victor L. Bello">
+  <title>My Work - Portfolio</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Mobile Top Header -->
+    <header class="mobile-header">
+      <div class="mobile-brand">My Portfolio</div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <!-- Sidebar Header Brand -->
+      <div class="sidebar-brand">
+        <span>MY PORTFOLIO</span>
+      </div>
+
+      <!-- Navigation Categories -->
+      <nav class="sidebar-nav-container">
+        
+        <!-- Main Navigation Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">Main</div>
+          <a href="index.html" class="nav-item">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+          </a>
+          
+          <a href="activities.html" class="nav-item active">
+            <i data-lucide="briefcase"></i>
+            <span>My Work</span>
+          </a>
+
+          <a href="certificates.html" class="nav-item">
+            <i data-lucide="award"></i>
+            <span>My Certificates</span>
+          </a>
+        </div>
+
+      </nav>
+    </aside>
+
+    <!-- Main Content Pane -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        
+        <!-- Header / Breadcrumb & Sorting -->
+        <div class="reflection-page-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; width: 100%;">
+          <div>
+            <span class="doc-badge">Overview</span>
+            <h2 class="page-title" style="margin-top: 4px;">My Work</h2>
+          </div>
+          
+          <!-- Sort control dropdown -->
+          <div class="sort-container" style="display: flex; align-items: center; gap: 8px;">
+            <label for="activities-sort" style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Sort by:</label>
+            <div style="position: relative; min-width: 140px;">
+              <select id="activities-sort" style="width: 100%; padding: 8px 32px 8px 12px; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; appearance: none; -webkit-appearance: none; cursor: pointer; transition: border-color var(--transition-fast);">
+                <option value="latest">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="az">Title A-Z</option>
+              </select>
+              <i data-lucide="chevron-down" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-secondary); pointer-events: none;"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activities List View -->
+        <div class="activities-list-container" id="activities-list">
+
+          <!-- Reflection 1 -->
+          <div class="activity-card" data-date="2026-08" data-title="Reflection 1: Becoming a Professional IT Practitioner">
+            <div class="activity-info">
+              <div class="activity-meta">
+                <span class="activity-badge">Reflection 1</span>
+                <span class="activity-date">August 2026</span>
+              </div>
+              <h3 class="activity-title">Becoming a Professional IT Practitioner</h3>
+            </div>
+            <div class="activity-actions" style="display: flex; gap: 12px; align-items: center;">
+              <!-- View Activity: opens .docx rendered inside the modal viewer page-by-page -->
+              <button class="btn-primary view-activity-btn"
+                      data-docx="assets/Becoming a Professional IT Practitioner.docx"
+                      data-title="Reflection 1: Becoming a Professional IT Practitioner">
+                <i data-lucide="eye"></i> View
+              </button>
+              <!-- Download: saves the actual .docx file -->
+              <a href="assets/Becoming a Professional IT Practitioner.docx" download
+                 class="btn-primary"
+                 style="background-color: transparent; color: var(--accent-color); border: 1px solid var(--accent-color);">
+                <i data-lucide="download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Reflection 2 -->
+          <div class="activity-card" data-date="2026-09" data-title="Reflection 2: Ethics, Security &amp; Modern IT Systems">
+            <div class="activity-info">
+              <div class="activity-meta">
+                <span class="activity-badge">Reflection 2</span>
+                <span class="activity-date">September 2026</span>
+              </div>
+              <h3 class="activity-title">Introduction to AI Literacy and Responsible Use</h3>
+            </div>
+            <div class="activity-actions" style="display: flex; gap: 12px; align-items: center;">
+              <button class="btn-primary view-activity-btn"
+                      data-docx="assets/Introduction to AI Literacy and Responsible Use.docx"
+                      data-title="Reflection 2: Ethics, Security &amp; Modern IT Systems">
+                <i data-lucide="eye"></i> View
+              </button>
+              <a href="assets/Introduction to AI Literacy and Responsible Use.docx" download
+                 class="btn-primary"
+                 style="background-color: transparent; color: var(--accent-color); border: 1px solid var(--accent-color);">
+                <i data-lucide="download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Reflection 3: Application Letter -->
+          <div class="activity-card" data-date="2026-10" data-title="Application Letter">
+            <div class="activity-info">
+              <div class="activity-meta">
+                <span class="activity-badge">Reflection 3</span>
+                <span class="activity-date">October 2026</span>
+              </div>
+              <h3 class="activity-title">Application Letter</h3>
+            </div>
+            <div class="activity-actions" style="display: flex; gap: 12px; align-items: center;">
+              <button class="btn-primary view-activity-btn"
+                      data-docx="assets/Bello Application Letter.pdf" 
+                      data-title="Application Letter">
+                <i data-lucide="eye"></i> View
+              </button>
+              <a href="assets/Bello Application Letter.pdf" download
+                 class="btn-primary"
+                 style="background-color: transparent; color: var(--accent-color); border: 1px solid var(--accent-color);">
+                <i data-lucide="download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Reflection 4 -->
+          <div class="activity-card" data-date="2026-11" data-title="Reflection Paper - Soft Skill Seminar">
+            <div class="activity-info">
+              <div class="activity-meta">
+                <span class="activity-badge">Reflection 4</span>
+                <span class="activity-date">October 2026</span>
+              </div>
+              <h3 class="activity-title">Reflection Paper - Soft Skill Seminar</h3>
+            </div>
+            <div class="activity-actions" style="display: flex; gap: 12px; align-items: center;">
+              <button class="btn-primary view-activity-btn"
+                      data-docx="assets/Reflection Paper on Learning Soft Skills.docx"
+                      data-title="Reflection Paper - Soft Skill Seminar">
+                <i data-lucide="eye"></i> View
+              </button>
+              <a href="assets/Reflection Paper on Learning Soft Skills.docx" download  
+                 class="btn-primary"
+                 style="background-color: transparent; color: var(--accent-color); border: 1px solid var(--accent-color);">
+                <i data-lucide="download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Reflection 5 -->
+          <div class="activity-card" data-date="2026-12" data-title="Building Your IT Career">
+            <div class="activity-info">
+              <div class="activity-meta">
+                <span class="activity-badge">Reflection 5</span>
+                <span class="activity-date">October 2026</span>
+              </div>
+              <h3 class="activity-title">Building Your IT Career</h3>
+            </div>
+            <div class="activity-actions" style="display: flex; gap: 12px; align-items: center;">
+              <button class="btn-primary view-activity-btn"
+                      data-pdf="assets/Building Your IT Career.pdf"
+                      data-docx="assets/Building Your IT Career.pdf"
+                      data-title="Reflection 5: Building Your IT Career">
+                <i data-lucide="eye"></i> View
+              </button>
+              <a href="assets/Building Your IT Career.pdf" download
+                 class="btn-primary"
+                 style="background-color: transparent; color: var(--accent-color); border: 1px solid var(--accent-color);">
+                <i data-lucide="download"></i> Download
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ===== Document Viewer Modal ===== -->
+  <div class="doc-viewer-overlay" id="doc-viewer-modal">
+    <div class="doc-viewer-container">
+
+      <!-- Toolbar -->
+      <div class="doc-viewer-toolbar">
+        <div class="doc-toolbar-left">
+          <div class="doc-icon-wrapper">
+            <i data-lucide="file-text"></i>
+          </div>
+          <span class="doc-title-text" id="doc-viewer-title">Document</span>
+        </div>
+
+        <div class="doc-toolbar-center">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="doc-zoom-controls">
+              <button class="zoom-btn" id="zoom-out-btn" aria-label="Zoom Out"><i data-lucide="minus"></i></button>
+              <span class="zoom-level" id="zoom-percentage">100%</span>
+              <button class="zoom-btn" id="zoom-in-btn"  aria-label="Zoom In"><i data-lucide="plus"></i></button>
+              <button class="zoom-btn" id="zoom-reset-btn" aria-label="Reset Zoom"><i data-lucide="maximize-2"></i></button>
+            </div>
+            <!-- Page Indicator -->
+            <div id="doc-page-indicator" style="background-color: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #FFFFFF; min-width: 64px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.08); display: none;">
+              1 / 1
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-toolbar-right">
+          <button class="doc-action-btn" id="doc-print-btn" title="Print">
+            <i data-lucide="printer"></i><span>Print</span>
+          </button>
+          <a id="doc-download-link" href="#" download class="doc-action-btn" title="Download .docx">
+            <i data-lucide="download"></i><span>Download</span>
+          </a>
+          <button class="doc-close-btn" id="doc-close-btn" aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Document Body -->
+      <div class="doc-viewer-body" id="doc-viewer-body">
+        <div class="doc-paper-wrapper" id="doc-paper-wrapper">
+          <div class="doc-paper" id="doc-paper-content" style="box-shadow: none; padding: 0; min-height: auto;">
+            <!-- Rendered from .docx via docx-preview -->
+            <div id="doc-loading-state" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:400px; gap:16px; color:var(--text-secondary);">
+              <svg style="width:40px;height:40px;animation:spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke="var(--accent-color)"/></svg>
+              <span style="font-size:0.9rem;">Loading document…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- JSZip (required dependency for docx-preview) -->
+  <script src="js/jszip.min.js"></script>
+
+  <!-- docx-preview library -->
+  <script src="js/docx-preview.min.js"></script>
+
+  <!-- PDF.js CDN for clean PDF rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- Interactive Script -->
+  <script src="app.js" defer></script>
+</body>
+</html>

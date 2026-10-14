@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Louise Victor L. Bello, a BSIT student and developer focused on creating practical, responsive, and user-friendly web and mobile systems.">
+  <title>Home - Portfolio</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Mobile Top Header -->
+    <header class="mobile-header">
+      <div class="mobile-brand">My Portfolio</div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <!-- Sidebar Header Brand -->
+      <div class="sidebar-brand">
+        <span>MY PORTFOLIO</span>
+      </div>
+
+      <!-- Navigation Categories -->
+      <nav class="sidebar-nav-container">
+        
+        <!-- Main Navigation Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">Main</div>
+          <a href="index.html" class="nav-item active">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+          </a>
+          
+          <a href="activities.html" class="nav-item">
+            <i data-lucide="briefcase"></i>
+            <span>My Work</span>
+          </a>
+
+          <a href="certificates.html" class="nav-item">
+            <i data-lucide="award"></i>
+            <span>My Certificates</span>
+          </a>
+        </div>
+
+      </nav>
+    </aside>
+
+    <!-- Main Content Pane -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        
+        <!-- Hero Section (Matches Screenshot Format: Photo Left, Content Right) -->
+        <section id="home" class="hero-section">
+          
+          <!-- Left side: Photo & Social Links -->
+          <div class="hero-image-col">
+            <div class="hero-portrait-card">
+              <img src="image.jpg" alt="Portrait" class="hero-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23EAEFEA%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2224%22 fill=%22%234F6F52%22>CMJ</text></svg>';">
+            </div>
+
+          </div>
+
+          <!-- Right side: Text & Details -->
+          <div class="hero-text-col">
+            <span class="hero-badge">STUDENT DEVELOPER</span>
+            <h2 class="hero-name-heading">
+            Louise Victor L. Bello
+            </h2>
+            
+            <!-- Bio text matching screenshot exactly -->
+            <div class="hero-bio-container">
+              <p class="hero-bio-p">
+                I am a BSIT student who enjoys learning and improving my skills in technology. I like creating useful systems and trying new ideas. Every project I work on helps me gain experience, solve problems, and become a better developer.
+              </p>
+              <p class="hero-bio-p">
+                And I keep learning new and adding up more new skills from the Projects and activities in it. Through it, learning the from the flaws, knowledge from everything, developing more on me as an IT student.
+              </p>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- Quick Stats Widget -->
+        <section class="stats-section">
+          <div class="stats-grid">
+            
+            <div class="stat-card dashboard-card">
+              <div class="stat-icon-wrapper">
+                <i data-lucide="user"></i>
+              </div>
+              <div class="stat-label">About me</div>
+            </div>
+
+            <div class="stat-card dashboard-card">
+              <div class="stat-icon-wrapper">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="stat-label">My Hobbies and Skills</div>
+            </div>
+
+            <div class="stat-card dashboard-card">
+              <div class="stat-icon-wrapper">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="stat-label">Contact Me</div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Modal Popup Overlay (Quick Stats) -->
+  <div id="stat-modal" class="modal-overlay">
+    <div class="modal-card">
+      <header class="modal-header">
+        <h3 id="modal-title">About Me</h3>
+        <button id="modal-close" class="modal-close-btn" aria-label="Close Pop-up">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+      <div id="modal-content" class="modal-content-area">
+        <!-- Dynamic content injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Interactive Script -->
+  <script src="app.js" defer></script>
+</body>
+</html>
