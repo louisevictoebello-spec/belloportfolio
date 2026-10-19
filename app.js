@@ -582,24 +582,72 @@ document.addEventListener('DOMContentLoaded', () => {
   const activitiesList = document.getElementById('activities-list');
 
   if (sortSelect && activitiesList) {
+    const originalActivities = Array.from(activitiesList.querySelectorAll('.activity-card'));
+
     sortSelect.addEventListener('change', () => {
       const val = sortSelect.value;
-      const cards = Array.from(activitiesList.querySelectorAll('.activity-card'));
+      let cards = Array.from(activitiesList.querySelectorAll('.activity-card'));
 
-      cards.sort((a, b) => {
-        if (val === 'latest') {
-          return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date'));
-        } else if (val === 'oldest') {
-          return a.getAttribute('data-date').localeCompare(b.getAttribute('data-date'));
-        } else if (val === 'az') {
-          return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
-        }
-        return 0;
-      });
+      if (val === 'default') {
+        cards = [...originalActivities];
+      } else {
+        cards.sort((a, b) => {
+          if (val === 'latest') {
+            return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date'));
+          } else if (val === 'oldest') {
+            return a.getAttribute('data-date').localeCompare(b.getAttribute('data-date'));
+          } else if (val === 'az') {
+            return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
+          }
+          return 0;
+        });
+      }
 
       // Clear list and re-append in sorted order
       cards.forEach(card => {
         activitiesList.appendChild(card);
+      });
+    });
+  }
+
+  // --- Dynamic Certificates Grid Sorting Logic ---
+  const certSortSelect = document.getElementById('certificates-sort');
+  const certCardsGrid = document.getElementById('cert-cards-grid') || document.querySelector('.cert-cards-grid');
+
+  if (certSortSelect && certCardsGrid) {
+    const originalCertCards = Array.from(certCardsGrid.querySelectorAll('.cert-card'));
+
+    certSortSelect.addEventListener('change', () => {
+      const val = certSortSelect.value;
+      let cards = Array.from(certCardsGrid.querySelectorAll('.cert-card'));
+
+      if (val === 'default') {
+        cards = [...originalCertCards];
+      } else {
+        cards.sort((a, b) => {
+          const dateA = a.getAttribute('data-date') || '';
+          const dateB = b.getAttribute('data-date') || '';
+          const titleA = (a.getAttribute('data-title') || '').trim();
+          const titleB = (b.getAttribute('data-title') || '').trim();
+
+          if (val === 'latest') {
+            return dateB.localeCompare(dateA);
+          } else if (val === 'oldest') {
+            return dateA.localeCompare(dateB);
+          } else if (val === 'az') {
+            return titleA.localeCompare(titleB);
+          }
+          return 0;
+        });
+      }
+
+      // Clear grid and re-append in sorted order with smooth staggered entrance
+      cards.forEach((card, index) => {
+        card.style.setProperty('--delay', `${index * 60}ms`);
+        card.style.animation = 'none';
+        void card.offsetWidth; // trigger reflow
+        card.style.animation = '';
+        certCardsGrid.appendChild(card);
       });
     });
   }
@@ -716,6 +764,51 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && certModalOverlay.classList.contains('active')) {
         closeCertModal();
       }
+    });
+  }
+  // --- Staggered entrance animation for Certificate Cards ---
+  document.querySelectorAll('.cert-card').forEach((card, index) => {
+    card.style.setProperty('--delay', `${index * 70}ms`);
+  });
+
+  // --- Render PDF Thumbnails for New Certificate Cards ---
+  const certThumbCanvases = document.querySelectorAll('.cert-thumb-canvas[data-pdf]');
+
+  if (certThumbCanvases.length > 0 && typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    certThumbCanvases.forEach(canvas => {
+      const pdfPath = canvas.getAttribute('data-pdf');
+      if (!pdfPath) return;
+
+      pdfjsLib.getDocument(encodeURI(pdfPath)).promise.then(pdf => {
+        return pdf.getPage(1);
+      }).then(page => {
+        const container = canvas.parentElement;
+        const containerW = container.offsetWidth || 320;
+        const containerH = container.offsetHeight || 200;
+
+        // Scale to fill preview area
+        const unscaledViewport = page.getViewport({ scale: 1 });
+        const scaleW = containerW / unscaledViewport.width;
+        const scaleH = containerH / unscaledViewport.height;
+        const scale = Math.min(scaleW, scaleH) * 2; // 2x for sharpness
+
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const ctx = canvas.getContext('2d');
+        return page.render({ canvasContext: ctx, viewport }).promise.then(() => {
+          canvas.classList.add('rendered');
+          // Style canvas to fit inside the preview box
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          canvas.style.objectFit = 'contain';
+        });
+      }).catch(err => {
+        console.warn('Cert thumb render failed for', pdfPath, err);
+      });
     });
   }
 });
