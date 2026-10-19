@@ -2964,7 +2964,7 @@ ul, ol {
 .certificates-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
   width: 100%;
 }
 
