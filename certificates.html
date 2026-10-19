@@ -57,105 +57,241 @@
     <main class="main-content">
       <div class="content-wrapper">
         
-        <!-- Section Header (Exact Original UI) -->
-        <div class="section-row-header" style="margin-bottom: 20px;">
+        <!-- Section Header / Sorting -->
+        <div class="section-row-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; width: 100%;">
           <div class="section-header-left">
             <h2 class="section-title">My Certificates</h2>
+          </div>
+
+          <!-- Sort control dropdown -->
+          <div class="sort-container" style="display: flex; align-items: center; gap: 8px;">
+            <label for="certificates-sort"
+              style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Sort by:</label>
+            <div style="position: relative; min-width: 140px;">
+              <select id="certificates-sort"
+                style="width: 100%; padding: 8px 32px 8px 12px; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; appearance: none; -webkit-appearance: none; cursor: pointer; transition: border-color var(--transition-fast);">
+                <option value="default">Default</option>
+                <option value="latest">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="az">Title A-Z</option>
+              </select>
+              <i data-lucide="chevron-down"
+                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-secondary); pointer-events: none;"></i>
+            </div>
           </div>
         </div>
 
         <!-- Certificates Grid -->
         <section id="certificates" class="certificates-section">
-          <div class="stats-grid">
+          <div class="cert-cards-grid" id="cert-cards-grid">
 
-            <!-- Certificate Stat Card 1 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 1 -->
+            <div class="cert-card"
                  data-img="assets/ClassOf2026__issued(BELLO).pdf"
                  data-title="Introduction to AI Literacy and Responsible Use"
                  data-issuer="JH Cerilles State College"
-                 data-date="August 2026"
-                 data-badge="Professional Ethics">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="award"></i>
+                 data-date="2026-09-14">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/ClassOf2026__issued(BELLO).pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="award"></i></div>
               </div>
-              <div class="stat-label">Introduction to AI Literacy and Responsible Use</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Introduction to AI Literacy and Responsible Use</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 14, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/ClassOf2026__issued(BELLO).pdf"
+                        data-title="Introduction to AI Literacy and Responsible Use"
+                        data-issuer="JH Cerilles State College"
+                        data-date="Sep 14, 2026">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 2 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 2 -->
+            <div class="cert-card"
                  data-img="assets/Build_Your_Resume_with_AI_certificate_louisevictoebello-gmail-com_9be4f14d-8ede-4230-8ac6-32a0ef6bd262.pdf"
                  data-title="Build Your Resume with AI"
-                 data-download="Build_Your_Resume_with_AI_certificate.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="sparkles"></i>
+                 data-date="2026-09-10">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Build_Your_Resume_with_AI_certificate_louisevictoebello-gmail-com_9be4f14d-8ede-4230-8ac6-32a0ef6bd262.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="sparkles"></i></div>
               </div>
-              <div class="stat-label">Build Your Resume with AI</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Build Your Resume with AI</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 10, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Build_Your_Resume_with_AI_certificate_louisevictoebello-gmail-com_9be4f14d-8ede-4230-8ac6-32a0ef6bd262.pdf"
+                        data-title="Build Your Resume with AI"
+                        data-date="Sep 10, 2026"
+                        data-download="Build_Your_Resume_with_AI_certificate.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 3 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 3 -->
+            <div class="cert-card"
                  data-img="assets/Networking_Devices_and_Initial_Configuration_certificate_louisevictoebello-gmail-com_2bde1a4d-f52a-4fe2-8d81-a2d8114d3bc4.pdf"
-                 data-title="Networking Devices &amp; Initial Configuration"
-                 data-download="Networking_Devices_and_Initial_Configuration_certificate.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="network"></i>
+                 data-title="Networking Devices & Initial Configuration"
+                 data-date="2026-09-17">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Networking_Devices_and_Initial_Configuration_certificate_louisevictoebello-gmail-com_2bde1a4d-f52a-4fe2-8d81-a2d8114d3bc4.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="network"></i></div>
               </div>
-              <div class="stat-label">Networking Devices &amp; Configuration</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Networking Devices &amp; Initial Configuration</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 17, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Networking_Devices_and_Initial_Configuration_certificate_louisevictoebello-gmail-com_2bde1a4d-f52a-4fe2-8d81-a2d8114d3bc4.pdf"
+                        data-title="Networking Devices & Initial Configuration"
+                        data-date="Sep 17, 2026"
+                        data-download="Networking_Devices_and_Initial_Configuration_certificate.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 4 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 4 -->
+            <div class="cert-card"
                  data-img="assets/Certificate_of_Participation_SoftSkill Seminar.pdf"
-                 data-title="Certificate of Participation - Soft Skills Seminar"
-                 data-download="Certificate_of_Participation_SoftSkill Seminar.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="users"></i>
+                 data-title="Certificate of Participation – Soft Skills Seminar"
+                 data-date="2026-09-25">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Certificate_of_Participation_SoftSkill Seminar.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="users"></i></div>
               </div>
-              <div class="stat-label">Certificate of Participation - Soft Skills Seminar</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Participation</span>
+                <h3 class="cert-card-title">Certificate of Participation – Soft Skills Seminar</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 25, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Certificate_of_Participation_SoftSkill Seminar.pdf"
+                        data-title="Certificate of Participation – Soft Skills Seminar"
+                        data-date="Sep 25, 2026"
+                        data-download="Certificate_of_Participation_SoftSkill Seminar.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 5 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 5 -->
+            <div class="cert-card"
                  data-img="assets/AI_Power_User_Launchpad_certificate_louisevictoebello-gmail-com_bb7c6854-166e-4b43-aa68-da651f20888f.pdf"
                  data-title="AI Power User Launchpad"
-                 data-download="AI_Power_User_Launchpad_certificate.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="rocket"></i>
+                 data-date="2026-09-24">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/AI_Power_User_Launchpad_certificate_louisevictoebello-gmail-com_bb7c6854-166e-4b43-aa68-da651f20888f.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="rocket"></i></div>
               </div>
-              <div class="stat-label">AI Power User Launchpad</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">AI Power User Launchpad</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 24, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/AI_Power_User_Launchpad_certificate_louisevictoebello-gmail-com_bb7c6854-166e-4b43-aa68-da651f20888f.pdf"
+                        data-title="AI Power User Launchpad"
+                        data-date="Sep 24, 2026"
+                        data-download="AI_Power_User_Launchpad_certificate.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 6 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 6 -->
+            <div class="cert-card"
                  data-img="assets/Hardware_and_Upgrade_Support_certificate_louisevictoebello-gmail-com_937ceae7-72d4-439b-8ffe-9d4bfe199cc2.pdf"
                  data-title="Hardware and Upgrade Support"
-                 data-download="Hardware_and_Upgrade_Support_certificate.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="wrench"></i>
+                 data-date="2026-09-30">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Hardware_and_Upgrade_Support_certificate_louisevictoebello-gmail-com_937ceae7-72d4-439b-8ffe-9d4bfe199cc2.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="wrench"></i></div>
               </div>
-              <div class="stat-label">Hardware and Upgrade Support</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Hardware and Upgrade Support</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 30, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Hardware_and_Upgrade_Support_certificate_louisevictoebello-gmail-com_937ceae7-72d4-439b-8ffe-9d4bfe199cc2.pdf"
+                        data-title="Hardware and Upgrade Support"
+                        data-date="Sep 30, 2026"
+                        data-download="Hardware_and_Upgrade_Support_certificate.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 7 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 7 -->
+            <div class="cert-card"
                  data-img="assets/Engaging_Stakeholders_for_Success_certificate_louisevictoebello-gmail-com_c3e4977a-cc3f-4bc6-abb1-3532e0458709.pdf"
                  data-title="Engaging Stakeholders for Success"
-                 data-download="Engaging_Stakeholders_for_Success_certificate.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="handshake"></i>
+                 data-date="2026-09-30">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Engaging_Stakeholders_for_Success_certificate_louisevictoebello-gmail-com_c3e4977a-cc3f-4bc6-abb1-3532e0458709.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="handshake"></i></div>
               </div>
-              <div class="stat-label">Engaging Stakeholders for Success</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Engaging Stakeholders for Success</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Sep 30, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Engaging_Stakeholders_for_Success_certificate_louisevictoebello-gmail-com_c3e4977a-cc3f-4bc6-abb1-3532e0458709.pdf"
+                        data-title="Engaging Stakeholders for Success"
+                        data-date="Sep 30, 2026"
+                        data-download="Engaging_Stakeholders_for_Success_certificate.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
-            <!-- Certificate Stat Card 8 -->
-            <div class="stat-card dashboard-card view-cert-btn cert-stat-card"
+            <!-- Certificate Card 8 -->
+            <div class="cert-card"
                  data-img="assets/Building Your IT Career.pdf"
                  data-title="Building Your IT Career"
-                 data-download="Building Your IT Career.pdf">
-              <div class="stat-icon-wrapper">
-                <i data-lucide="briefcase"></i>
+                 data-date="2026-10-13">
+              <div class="cert-card-preview">
+                <canvas class="cert-thumb-canvas" data-pdf="assets/Building Your IT Career.pdf"></canvas>
+                <div class="cert-thumb-fallback"><i data-lucide="briefcase"></i></div>
               </div>
-              <div class="stat-label">Building Your IT Career</div>
+              <div class="cert-card-body">
+                <span class="cert-card-label">Certificate of Completion</span>
+                <h3 class="cert-card-title">Building Your IT Career</h3>
+                <div class="cert-card-date">
+                  <i data-lucide="calendar"></i>
+                  <span>Oct 13, 2026</span>
+                </div>
+                <button class="cert-card-btn view-cert-btn"
+                        data-img="assets/Building Your IT Career.pdf"
+                        data-title="Building Your IT Career"
+                        data-date="Oct 13, 2026"
+                        data-download="Building Your IT Career.pdf">
+                  View Certificate →
+                </button>
+              </div>
             </div>
 
           </div>
