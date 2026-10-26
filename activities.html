@@ -7,6 +7,16 @@
   <meta name="description" content="My Work - Portfolio of Louise Victor L. Bello">
   <title>My Work - Portfolio</title>
 
+  <!-- Preconnect to external origins for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts: Non-render-blocking load -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"></noscript>
+
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -272,17 +282,17 @@
     </div>
   </div>
 
-  <!-- Lucide CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide CDN (async + defer to avoid render-blocking) -->
+  <script src="https://unpkg.com/lucide@1.61.0/dist/umd/lucide.min.js" async defer></script>
 
   <!-- JSZip (required dependency for docx-preview) -->
-  <script src="js/jszip.min.js"></script>
+  <script src="js/jszip.min.js" defer></script>
 
   <!-- docx-preview library -->
-  <script src="js/docx-preview.min.js"></script>
+  <script src="js/docx-preview.min.js" defer></script>
 
   <!-- PDF.js CDN for clean PDF rendering -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 
   <!-- Interactive Script -->
   <script src="app.js" defer></script>
