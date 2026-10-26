@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Certificates & Achievements - Portfolio of Louise Victor L. Bello">
+  <meta name="description" content="Certificates &amp; Achievements - Portfolio of Louise Victor L. Bello">
   <title>My Certificates - Portfolio</title>
-  
+
+  <!-- Preconnect to external origins for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts: Non-render-blocking load -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"></noscript>
+
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -403,10 +413,10 @@
   </div>
 
   <!-- PDF.js CDN for clean PDF rendering -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 
-  <!-- Lucide CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide CDN (async + defer to avoid render-blocking) -->
+  <script src="https://unpkg.com/lucide@1.61.0/dist/umd/lucide.min.js" async defer></script>
   
   <!-- Interactive Script -->
   <script src="app.js" defer></script>
