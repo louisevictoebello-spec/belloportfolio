@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Louise Victor L. Bello, a BSIT student and developer focused on creating practical, responsive, and user-friendly web and mobile systems.">
   <title>Home - Portfolio</title>
-  
+
+  <!-- Preconnect to external origins for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Google Fonts: Non-render-blocking load (media=print trick) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"></noscript>
+
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,7 +72,7 @@
           <!-- Left side: Photo & Social Links -->
           <div class="hero-image-col">
             <div class="hero-portrait-card">
-              <img src="image.jpg" alt="Portrait" class="hero-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23EAEFEA%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2224%22 fill=%22%234F6F52%22>CMJ</text></svg>';">
+              <img src="image.jpg" alt="Portrait of Louise Victor L. Bello" class="hero-avatar" width="200" height="266" fetchpriority="high" loading="eager" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23EAEFEA%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2224%22 fill=%22%234F6F52%22>CMJ</text></svg>';">
             </div>
 
           </div>
@@ -137,8 +146,8 @@
     </div>
   </div>
 
-  <!-- Lucide CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide CDN (async + defer to avoid render-blocking) -->
+  <script src="https://unpkg.com/lucide@1.61.0/dist/umd/lucide.min.js" async defer></script>
   
   <!-- Interactive Script -->
   <script src="app.js" defer></script>
