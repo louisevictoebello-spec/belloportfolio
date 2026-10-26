@@ -1,8 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
+// Helper: Initialize Lucide icons — handles async load timing
+function initLucide() {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
+}
+
+// If Lucide loaded before this script, call immediately.
+// If not yet loaded (async), set up an onload listener on the script tag.
+(function() {
+  if (typeof lucide !== 'undefined') {
+    // Already available
+  } else {
+    const lucideScript = document.querySelector('script[src*="lucide"]');
+    if (lucideScript) {
+      lucideScript.addEventListener('load', initLucide);
+    }
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide Icons (call again in case script loaded between events)
+  initLucide();
 
   // --- Mobile Drawer Toggle ---
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
